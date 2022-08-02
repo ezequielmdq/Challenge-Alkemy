@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Peliculas Populares</string>
+    <string name="textview">TextView</string>
+    <string name="genero">Genero:</string>
+    <string name="imagen_de_fondo_pantalla_pricipal">Imagen de fondo pantalla pricipal</string>
+    <string name="imagen_del_poster_de_la_pelicula">Imagen del poster de la pelicula</string>
+    <string name="descripcion">Descripción:</string>
+    <string name="clasificacion">Calificación:</string>
+    <string name="fecha_de_estreno">Fecha de estreno:</string>
+    <string name="Lenguaje">Lenguaje:</string>
+    <string name="imagen_de_backdrop_de_pelicula">Imagen de backdrop de pelicula</string>
+    <string name="grafico_de_calificacion">Grafico de calificacion</string>
+    <string name="error_conexion">No se pudo realizar conexión con el servidor</string>
+</resources>
