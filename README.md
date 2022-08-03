@@ -1,0 +1,2 @@
+Hola mi nombre es Cesar Ezequiel Reinoso. Este repositorio tiene el codigo del challenge de ingreso a android alkemy.
+En "Presentación" hay un breve video donde me presento y muestro la aplicación desarrollada.  
