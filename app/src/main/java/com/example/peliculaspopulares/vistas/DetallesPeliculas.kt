@@ -11,7 +11,10 @@ import com.example.peliculaspopulares.model.PeliculasPopularesViewModel
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModelFactory
 import kotlin.math.roundToInt
 
-class DetallesPeliculas : AppCompatActivity() {
+class
+
+
+DetallesPeliculas : AppCompatActivity() {
 
 
 

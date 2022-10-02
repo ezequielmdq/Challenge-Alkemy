@@ -1,7 +1,7 @@
 package com.example.peliculaspopulares.vistas
 
 
-import android.annotation.SuppressLint
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup

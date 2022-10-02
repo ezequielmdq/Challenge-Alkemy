@@ -1,7 +1,5 @@
 package com.example.peliculaspopulares.service
 
-
-
 import com.example.peliculaspopulares.BuildConfig
 import com.example.peliculaspopulares.data.Pagina
 import com.example.peliculaspopulares.data.PeliculaID
