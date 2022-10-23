@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import coil.load
 import com.example.peliculaspopulares.R
+import com.example.peliculaspopulares.data.Peliculas
 import com.example.peliculaspopulares.databinding.ActivityDetallesPeliculasBinding
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModel
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModelFactory

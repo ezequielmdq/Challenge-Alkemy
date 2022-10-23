@@ -1,5 +1,7 @@
 package com.example.peliculaspopulares.vistas
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -46,6 +48,17 @@ class PantallaPrincipal : Fragment() {
                 newPeliculas -> adapter?.setPeliculas(newPeliculas)
 
         }
+
+        adapter.onClick = {
+            var a = it
+            val intent = Intent(context, DetallesPeliculas::class.java).also {
+                it.putExtra("pelicula_id", a.id)
+                it.putExtra("poster_id", a.backdrop)}
+            startActivity(intent)
+        }
+
+
+
             return binding.root
         }
     }
