@@ -11,4 +11,6 @@
     <string name="imagen_de_backdrop_de_pelicula">Imagen de backdrop de pelicula</string>
     <string name="grafico_de_calificacion">Grafico de calificacion</string>
     <string name="error_conexion">No se pudo realizar conexión con el servidor</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
