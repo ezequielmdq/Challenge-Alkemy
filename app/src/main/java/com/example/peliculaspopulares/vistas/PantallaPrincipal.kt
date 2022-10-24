@@ -7,7 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.peliculaspopulares.databinding.FragmentPantallaPrincipalBinding
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModel
@@ -16,16 +19,18 @@ import com.example.peliculaspopulares.model.PeliculasPopularesViewModelFactory
 
 class PantallaPrincipal : Fragment() {
 
-    private lateinit var binding : FragmentPantallaPrincipalBinding
+    private lateinit var binding: FragmentPantallaPrincipalBinding
 
-    private lateinit var adapter : AdaptadorRecyclerView
+    private lateinit var adapter: AdaptadorRecyclerView
 
-    private val viewModel : PeliculasPopularesViewModel by activityViewModels(
+    private val viewModel: PeliculasPopularesViewModel by activityViewModels(
         factoryProducer = { PeliculasPopularesViewModelFactory() }
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
     }
 
     override fun onCreateView(
@@ -44,21 +49,27 @@ class PantallaPrincipal : Fragment() {
 
         // Observer que actualiza lista de peliculas
 
-        viewModel.pelis.observe(viewLifecycleOwner) {
-                newPeliculas -> adapter?.setPeliculas(newPeliculas)
+        viewModel.pelis.observe(viewLifecycleOwner) { newPeliculas ->
+            adapter?.setPeliculas(newPeliculas)
 
         }
-
         adapter.onClick = {
             var a = it
-            val intent = Intent(context, DetallesPeliculas::class.java).also {
-                it.putExtra("pelicula_id", a.id)
-                it.putExtra("poster_id", a.backdrop)}
-            startActivity(intent)
+            // val intent = Intent(context, DetallesPeliculas::class.java).also {
+            //    it.putExtra("pelicula_id", a.id)
+            //     it.putExtra("poster_id", a.backdrop)}
+            //  startActivity(intent)
+            val resultImagen = a.backdrop
+            setFragmentResult("requestKey1", bundleOf("bundleKey1" to resultImagen))
+            val resultNombre = a.id
+            setFragmentResult("requestKey2", bundleOf("bundleKey2" to resultNombre))
+
+            getFragmentManager()?.let { DetallesPeliculas().show(it, "DialogFragment") }
         }
 
 
 
-            return binding.root
-        }
+
+        return binding.root
     }
+}

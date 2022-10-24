@@ -34,6 +34,7 @@ class AdaptadorRecyclerView(val context : Context): RecyclerView.Adapter<Adaptad
                 error(R.drawable.ic_broken_image)
             }
 
+
         }
     }
 
