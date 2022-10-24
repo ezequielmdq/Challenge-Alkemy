@@ -23,8 +23,6 @@ class DetallesPeliculas : DialogFragment() {
         factoryProducer = { PeliculasPopularesViewModelFactory() }
     )
 
-    var peliculaid = "hola"
-    var posterid = "hola"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
