@@ -24,6 +24,7 @@ class PeliculasPopularesViewModel(private val repository : PeliculasReposiroty) 
     private val _pelisgenero = MutableLiveData<List<Generodetalles>>()
     private val _pelislenguaje = MutableLiveData<String>()
     private val _errorconexion = MutableLiveData<String>()
+    private val _poster = MutableLiveData<String>()
 
     val pelis: LiveData<List<Peliculas>> = _pelis
     val pelisfechalanzamiento : LiveData<String> = _pelisfechalanzamiento
@@ -32,6 +33,7 @@ class PeliculasPopularesViewModel(private val repository : PeliculasReposiroty) 
     val pelisgenero : LiveData<List<Generodetalles>> = _pelisgenero
     val pelislenguaje : LiveData<String> = _pelislenguaje
     val errorconexion : LiveData<String> = _errorconexion
+    val poster : LiveData<String> = _poster
 
 
     // Metodos para consultar api
@@ -64,6 +66,7 @@ class PeliculasPopularesViewModel(private val repository : PeliculasReposiroty) 
                     _peliscalificacion.value = response.data.porcenjatevotos
                     _pelislenguaje.value = response.data.lenguaje
                     _pelisgenero.value = response.data.genero
+                    _poster.value = response.data.poster
 
                 }
 

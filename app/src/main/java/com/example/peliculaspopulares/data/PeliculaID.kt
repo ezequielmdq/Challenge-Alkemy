@@ -19,6 +19,8 @@ class PeliculaID(
     val genero : List<Generodetalles>,
     @SerializedName("release_date")
     val fechalanzamiento : String,
+    @SerializedName("backdrop_path")
+    val poster : String
 
 
 

@@ -1,23 +1,14 @@
 package com.example.peliculaspopulares.vistas
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
-
-
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.setFragmentResultListener
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import coil.load
 import com.example.peliculaspopulares.R
-import com.example.peliculaspopulares.data.Peliculas
 import com.example.peliculaspopulares.databinding.ActivityDetallesPeliculasBinding
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModel
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModelFactory
@@ -47,42 +38,15 @@ class DetallesPeliculas : DialogFragment() {
     ): View? {
         binding = ActivityDetallesPeliculasBinding.inflate(inflater, container, false)
 
-        setFragmentResultListener("requestKey1",) { key, bundle ->
-            val resultImagen = bundle.getString("bundleKey1")
-            if (resultImagen != null) {
-                posterid = resultImagen
-                println(posterid)
-                if (peliculaid != null) {
-                    viewModel.cargarID(peliculaid)
-                }
-            }
-        }
-        setFragmentResultListener("requestKey2",) { key, bundle ->
-            val resultNombre = bundle.getString("bundleKey2")
-            if (resultNombre != null) {
-                peliculaid = resultNombre
-            }
-            println(peliculaid)
-
-        }
-
-        println(posterid)
-        println(peliculaid)
-
-        cargarDatos()
-
-
+        /** Se carga el valor de la descripcion observando el livedata*/
         viewModel.pelisid.observe(viewLifecycleOwner) { pelisid ->
-            binding.tvDescripcion.text = pelisid
+            binding.tvDescripcionValor.text = pelisid
         }
-        //{
-          //  binding.tvDescripcionValor.text = viewModel.pelisid.value.toString()
-
-        //}
-
+        /** Se carga el valor de la fecha de lanzamiento observando el livedata*/
         viewModel.pelisfechalanzamiento.observe(viewLifecycleOwner) {
             binding.tvFechaEstrenoValor.text = viewModel.pelisfechalanzamiento.value
         }
+        /** Se carga el valor de la calificacion observando el livedata*/
         viewModel.peliscalificacion.observe(viewLifecycleOwner) {
             val porcentaje = viewModel.peliscalificacion.value
             if (porcentaje != null) {
@@ -121,17 +85,18 @@ class DetallesPeliculas : DialogFragment() {
                 }
             }
         }
-
-        binding.backdrop.load("https://image.tmdb.org/t/p/original${posterid}") {
+        /** Se carga el valor del poster back observando el livedata*/
+        viewModel.poster.observe(viewLifecycleOwner){ poster ->
+        binding.backdrop.load("https://image.tmdb.org/t/p/original${poster}") {
             placeholder(R.drawable.loading_animation)
             error(R.drawable.ic_broken_image)
-        }
-
+        }}
+        /** Se carga el valor de la descripcion observando el livedata*/
         viewModel.pelislenguaje.observe(viewLifecycleOwner){
             binding.tvLenguajeValor.text = viewModel.pelislenguaje.value
 
         }
-
+        /** Se carga el valor del genero observando el livedata*/
         viewModel.pelisgenero.observe(viewLifecycleOwner){
             generos -> var textogeneros = ""
             for (genero in generos){
@@ -142,13 +107,6 @@ class DetallesPeliculas : DialogFragment() {
         }
 
         return binding.root
-
-    }
-
-    fun cargarDatos(){
-
-
-
 
     }
 

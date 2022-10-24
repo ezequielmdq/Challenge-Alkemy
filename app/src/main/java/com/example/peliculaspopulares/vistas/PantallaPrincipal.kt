@@ -43,27 +43,19 @@ class PantallaPrincipal : Fragment() {
         adapter = context?.let { AdaptadorRecyclerView(it) }!!
         binding.recyclerPeliculas.adapter = adapter
 
-        // Consulta a api
+        /** Consulta a api*/
 
         viewModel.cargar()
 
-        // Observer que actualiza lista de peliculas
+       /** Observer que actualiza lista de peliculas */
 
         viewModel.pelis.observe(viewLifecycleOwner) { newPeliculas ->
             adapter?.setPeliculas(newPeliculas)
 
         }
         adapter.onClick = {
-            var a = it
-            // val intent = Intent(context, DetallesPeliculas::class.java).also {
-            //    it.putExtra("pelicula_id", a.id)
-            //     it.putExtra("poster_id", a.backdrop)}
-            //  startActivity(intent)
-            val resultImagen = a.backdrop
-            setFragmentResult("requestKey1", bundleOf("bundleKey1" to resultImagen))
-            val resultNombre = a.id
-            setFragmentResult("requestKey2", bundleOf("bundleKey2" to resultNombre))
 
+            viewModel.cargarID(it.id)
             getFragmentManager()?.let { DetallesPeliculas().show(it, "DialogFragment") }
         }
 
