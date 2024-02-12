@@ -3,16 +3,17 @@ package com.example.peliculaspopulares.model
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.peliculaspopulares.data.Pagina
-import com.example.peliculaspopulares.data.PeliculaID
+import androidx.lifecycle.viewModelScope
 import com.example.peliculaspopulares.data.Peliculas
 import com.example.peliculaspopulares.data.Generodetalles
 import com.example.peliculaspopulares.repositorio.PeliculasReposiroty
-import com.example.peliculaspopulares.repositorio.RepositoryError
-import com.example.peliculaspopulares.repositorio.RepositoryResponse
-import com.example.peliculaspopulares.repositorio.ResponseListener
+import com.example.peliculaspopulares.repositorio.RemoteRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PeliculasPopularesViewModel(private val repository : PeliculasReposiroty) : ViewModel() {
+@HiltViewModel
+class PeliculasPopularesViewModel @Inject constructor(private val repository: PeliculasReposiroty, private val repository2: RemoteRepository) : ViewModel() {
 
 
     //variables viewmodel
@@ -38,7 +39,7 @@ class PeliculasPopularesViewModel(private val repository : PeliculasReposiroty) 
 
     // Metodos para consultar api
 
-    fun cargar() {
+  /* fun cargar() {
 
         repository.getPagina(listener = object : ResponseListener<Pagina> {
             override fun onResponse(response: RepositoryResponse<Pagina>) {
@@ -79,7 +80,32 @@ class PeliculasPopularesViewModel(private val repository : PeliculasReposiroty) 
 
         }
 
+**/
 
+    fun getPeliculas() {
+        viewModelScope.launch {
+            try {
+                _pelis.value = repository2.fetchPeliculas()?.results
+            } catch (e: Exception) {
+
+            }
+        }
+    }
+
+    fun getPeliculaId(idpelicula : String){
+        viewModelScope.launch {
+            try {
+                _pelisid.value = repository2.fetchPeliculaID(idpelicula)?.descipcion
+                _pelisfechalanzamiento.value = repository2.fetchPeliculaID(idpelicula)?.fechalanzamiento
+                _peliscalificacion.value = repository2.fetchPeliculaID(idpelicula)?.porcenjatevotos
+                _pelislenguaje.value = repository2.fetchPeliculaID(idpelicula)?.lenguaje
+                _pelisgenero.value = repository2.fetchPeliculaID(idpelicula)?.genero
+                _poster.value = repository2.fetchPeliculaID(idpelicula)?.poster
+            }catch (e: Exception){
+
+            }
+        }
+    }
 
 
 }

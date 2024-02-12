@@ -7,7 +7,10 @@ import androidx.activity.viewModels
 import com.example.peliculaspopulares.databinding.ActivityMainBinding
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModel
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
@@ -20,7 +23,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
     }
+
+
+
 }
 
 

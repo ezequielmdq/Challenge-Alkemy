@@ -12,7 +12,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 // Servicio retrofit
 
 object RetrofitService {
-
     val instance : Retrofit
         get() {
             val httpClient = OkHttpClient.Builder()

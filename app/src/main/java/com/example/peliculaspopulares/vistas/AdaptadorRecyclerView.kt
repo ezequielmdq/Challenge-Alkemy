@@ -10,6 +10,8 @@ import com.example.peliculaspopulares.BuildConfig
 import com.example.peliculaspopulares.R
 import com.example.peliculaspopulares.data.Peliculas
 import com.example.peliculaspopulares.databinding.VistaPrincipalBinding
+import dagger.hilt.android.AndroidEntryPoint
+
 
 class AdaptadorRecyclerView(val context : Context): RecyclerView.Adapter<AdaptadorRecyclerView.ItemViewHolder>(){
 

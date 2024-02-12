@@ -1,22 +1,20 @@
 package com.example.peliculaspopulares.vistas
 
-import android.content.Context
-import android.content.Intent
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.setFragmentResult
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.peliculaspopulares.databinding.FragmentPantallaPrincipalBinding
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModel
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class PantallaPrincipal : Fragment() {
 
     private lateinit var binding: FragmentPantallaPrincipalBinding
@@ -45,9 +43,13 @@ class PantallaPrincipal : Fragment() {
 
         /** Consulta a api*/
 
-        viewModel.cargar()
+        //viewModel.cargar()
+        viewModel.getPeliculas()
 
-       /** Observer que actualiza lista de peliculas */
+
+
+
+        /** Observer que actualiza lista de peliculas */
 
         viewModel.pelis.observe(viewLifecycleOwner) { newPeliculas ->
             adapter?.setPeliculas(newPeliculas)
@@ -55,8 +57,12 @@ class PantallaPrincipal : Fragment() {
         }
         adapter.onClick = {
 
-            viewModel.cargarID(it.id)
-            getFragmentManager()?.let { DetallesPeliculas().show(it, "DialogFragment") }
+            //       viewModel.cargarID(it.id)
+            //       getFragmentManager()?.let { DetallesPeliculas().show(it, "DialogFragment") }
+                     viewModel.getPeliculaId(it.id)
+                     getFragmentManager()?.let { DetallesPeliculas().show(it, "DialogFragment") }
+
+
         }
 
 
@@ -64,4 +70,8 @@ class PantallaPrincipal : Fragment() {
 
         return binding.root
     }
+
+
 }
+
+

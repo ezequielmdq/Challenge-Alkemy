@@ -6,8 +6,9 @@ import com.example.peliculaspopulares.service.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class PeliculasDataSource {
+class PeliculasDataSource @Inject constructor() {
 
     fun getPagina(listener  : ResponseListener<Pagina>){
 
