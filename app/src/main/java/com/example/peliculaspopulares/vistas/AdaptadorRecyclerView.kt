@@ -35,10 +35,9 @@ class AdaptadorRecyclerView(val context : Context): RecyclerView.Adapter<Adaptad
             binding.tituloPelicula.text = peliculas.titulo
             binding.posterPelicula.load(BuildConfig.BASE_URL_IMAGEN + peliculas.posterpath) {
                 placeholder(R.drawable.loading_animation)
+                error(R.drawable.ic_broken_image)
 
             }
-
-
         }
     }
 
@@ -58,7 +57,6 @@ class AdaptadorRecyclerView(val context : Context): RecyclerView.Adapter<Adaptad
     override fun getItemCount(): Int {
         return  data.size
     }
-
 }
 
 

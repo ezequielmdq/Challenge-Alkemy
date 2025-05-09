@@ -29,15 +29,15 @@ class DetallesPeliculas : DialogFragment() {
     ): View? {
         binding = ActivityDetallesPeliculasBinding.inflate(inflater, container, false)
 
-        /** Se carga el valor de la descripcion observando el livedata*/
+        /** Se carga el valor de la descripcion observando el livedata */
         viewModel.pelisid.observe(viewLifecycleOwner) { pelisid ->
             binding.tvDescripcionValor.text = pelisid
         }
-        /** Se carga el valor de la fecha de lanzamiento observando el livedata*/
+        /** Se carga el valor de la fecha de lanzamiento observando el livedata */
         viewModel.pelisfechalanzamiento.observe(viewLifecycleOwner) {
             binding.tvFechaEstrenoValor.text = viewModel.pelisfechalanzamiento.value
         }
-        /** Se carga el valor de la calificacion observando el livedata*/
+        /** Se carga el valor de la calificacion observando el livedata */
         viewModel.peliscalificacion.observe(viewLifecycleOwner) {
             val porcentaje = viewModel.peliscalificacion.value
             if (porcentaje != null) {
@@ -76,19 +76,23 @@ class DetallesPeliculas : DialogFragment() {
                 }
             }
         }
-        /** Se carga el valor del poster back observando el livedata*/
+
+        /** Se carga el valor del poster back observando el livedata */
         viewModel.poster.observe(viewLifecycleOwner){ poster ->
         binding.backdrop.load("https://image.tmdb.org/t/p/original${poster}") {
             placeholder(R.drawable.loading_animation)
+            error(R.drawable.ic_broken_image)
 
-        }}
-        /** Se carga el valor de la descripcion observando el livedata*/
+            }
+        }
+        /** Se carga el valor de la descripcion observando el livedata */
         viewModel.pelislenguaje.observe(viewLifecycleOwner){
             binding.tvLenguajeValor.text = viewModel.pelislenguaje.value
 
         }
-        /** Se carga el valor del genero observando el livedata*/
-        viewModel.pelisgenero.observe(viewLifecycleOwner){
+
+        /** Se carga el valor del genero observando el livedata */
+        viewModel.pelisgenero.observe(viewLifecycleOwner) {
             generos -> var textogeneros = ""
             for (genero in generos){
                 textogeneros += "${genero.name} "

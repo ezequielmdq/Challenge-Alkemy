@@ -35,16 +35,10 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
 
-        viewModel.getPeliculas()
-
-
-
     }
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
-
-
 
     }
 

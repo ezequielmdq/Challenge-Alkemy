@@ -5,7 +5,6 @@ import com.squareup.moshi.Json
 
 class PeliculaID(
 
-    
 
     val id : String,
     //@SerializedName("original_title")
