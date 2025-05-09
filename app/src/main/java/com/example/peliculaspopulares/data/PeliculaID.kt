@@ -1,6 +1,6 @@
 package com.example.peliculaspopulares.data
 
-import com.google.gson.annotations.SerializedName
+
 import com.squareup.moshi.Json
 
 class PeliculaID(

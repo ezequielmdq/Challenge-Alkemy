@@ -5,12 +5,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
+import coil3.load
+import coil3.request.error
+import coil3.request.placeholder
 import com.example.peliculaspopulares.BuildConfig
 import com.example.peliculaspopulares.R
 import com.example.peliculaspopulares.data.Peliculas
 import com.example.peliculaspopulares.databinding.VistaPrincipalBinding
-import dagger.hilt.android.AndroidEntryPoint
+
 
 
 class AdaptadorRecyclerView(val context : Context): RecyclerView.Adapter<AdaptadorRecyclerView.ItemViewHolder>(){
@@ -33,7 +35,7 @@ class AdaptadorRecyclerView(val context : Context): RecyclerView.Adapter<Adaptad
             binding.tituloPelicula.text = peliculas.titulo
             binding.posterPelicula.load(BuildConfig.BASE_URL_IMAGEN + peliculas.posterpath) {
                 placeholder(R.drawable.loading_animation)
-                error(R.drawable.ic_broken_image)
+
             }
 
 

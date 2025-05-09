@@ -7,28 +7,21 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
-import coil.load
+import coil3.load
+import coil3.request.error
+import coil3.request.placeholder
 import com.example.peliculaspopulares.R
 import com.example.peliculaspopulares.databinding.ActivityDetallesPeliculasBinding
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModel
-import com.example.peliculaspopulares.model.PeliculasPopularesViewModelFactory
 import kotlin.math.roundToInt
 
 class DetallesPeliculas : DialogFragment() {
 
-
-
     private lateinit var binding: ActivityDetallesPeliculasBinding
-    private val viewModel : PeliculasPopularesViewModel by activityViewModels(
-        factoryProducer = { PeliculasPopularesViewModelFactory() }
-    )
+
+    private val viewModel : PeliculasPopularesViewModel by activityViewModels {PeliculasPopularesViewModel.Factory}
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -87,7 +80,7 @@ class DetallesPeliculas : DialogFragment() {
         viewModel.poster.observe(viewLifecycleOwner){ poster ->
         binding.backdrop.load("https://image.tmdb.org/t/p/original${poster}") {
             placeholder(R.drawable.loading_animation)
-            error(R.drawable.ic_broken_image)
+
         }}
         /** Se carga el valor de la descripcion observando el livedata*/
         viewModel.pelislenguaje.observe(viewLifecycleOwner){
