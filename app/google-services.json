@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1005486429526",
+    "project_id": "appp-c4146",
+    "storage_bucket": "appp-c4146.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005486429526:android:01be17808088b01e9272f7",
+        "android_client_info": {
+          "package_name": "com.example.peliculaspopulares"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeAwW_IJ3h1w5XiI_98ieRsw7r-pWlR0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

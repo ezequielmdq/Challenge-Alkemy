@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'com.google.gms.google-services'
 }
 
 kapt {
@@ -19,13 +20,13 @@ android {
         versionCode 1
         versionName "1.0"
 
-        //buildConfigField("String", "BASE_URL",  "\"https://api.themoviedb.org/3/\"")
+        buildConfigField("String", "BASE_URL",  "\"https://api.themoviedb.org/3/\"")
         buildConfigField("String", "PATH_PELICULAS",  "\"movie/\"")
         //buildConfigField("String", "QUERY_POPULAR",  "\"popular?\"")
         buildConfigField("String", "QUERY_POPULAR",  "\"top_rated?\"")
         buildConfigField("String", "QUERY_PELICULAID",  "\"{movieid}?\"")
         buildConfigField("String", "BASE_URL_IMAGEN",  "\"https://image.tmdb.org/t/p/original\"")
-        //buildConfigField("String", "API_KEY",  "\"api_key=02910252245f8276bb2edbf724510082\"")
+        buildConfigField("String", "API_KEY",  "\"api_key=02910252245f8276bb2edbf724510082\"")
         buildConfigField("String", "QUERY_LENGUAJE",  "\"&language=es\"")
 
 
@@ -84,4 +85,20 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.55")
     kapt("com.google.dagger:hilt-android-compiler:2.55")
 
+    // Add the dependencies for any other desired Firebase products
+    // https://firebase.google.com/docs/android/setup#available-libraries
+
+    // Import the Firebase BoM (see: https://firebase.google.com/docs/android/learn-more#bom)
+    implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
+
+    // Firebase Cloud Messaging
+    implementation("com.google.firebase:firebase-messaging")
+
+    // For an optimal experience using FCM, add the Firebase SDK
+    // for Google Analytics. This is recommended, but not required.
+    implementation("com.google.firebase:firebase-analytics")
+
+    implementation("com.google.firebase:firebase-installations:18.0.0")
+
+    implementation("androidx.work:work-runtime:2.10.0")
 }

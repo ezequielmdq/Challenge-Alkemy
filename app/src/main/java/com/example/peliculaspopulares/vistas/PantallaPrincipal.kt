@@ -7,13 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.peliculaspopulares.R
 import com.example.peliculaspopulares.databinding.FragmentPantallaPrincipalBinding
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModel
-import dagger.hilt.android.AndroidEntryPoint
+
 
 
 
@@ -35,7 +34,6 @@ class PantallaPrincipal : Fragment() {
         binding.recyclerPeliculas.layoutManager = LinearLayoutManager(context)
         adapter = context?.let { AdaptadorRecyclerView(it) }!!
         binding.recyclerPeliculas.adapter = adapter
-
 
 
         /** Consulta a api */
