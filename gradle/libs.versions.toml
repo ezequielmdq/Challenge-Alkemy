@@ -1,40 +1,50 @@
 [versions]
-agp = "8.2.0"
-coil = "2.5.0"
-converterGson = "2.9.0"
-converterMoshi = "2.9.0"
-fragmentKtx = "1.6.2"
-gradle = "8.9.0"
-gson = "2.10.1"
-hiltAndroid = "2.55"
-hiltAndroidCompiler = "2.55"
-hiltAndroidGradlePlugin = "2.50"
-kotlin = "2.1.0"
-coreKtx = "1.15.0"
+agp = "8.11.1"
+coil = "2.7.0"
+coilNetworkOkhttp = "3.3.0"
+coilVersion = "3.3.0"
+converterGson = "3.0.0"
+converterMoshi = "3.0.0"
+firebaseBom = "34.0.0"
+firebaseInstallations = "19.0.0"
+fragmentKtx = "1.8.8"
+gradle = "8.11.1"
+gradleVersion = "8.11.1"
+gson = "2.13.1"
+hiltAndroid = "2.57"
+hiltAndroidCompiler = "2.57"
+hiltAndroidGradlePlugin = "2.57"
+kotlin = "2.2.0"
+coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-appcompat = "1.7.0"
-kapt = "2.0.0"
+appcompat = "1.7.1"
+kapt = "2.2.0"
 kotlinGradlePlugin = "1.9.22"
 kotlinGradlePluginVersion = "1.6.21"
-kotlinxCoroutinesAndroid = "1.7.3"
-ksp = "2.1.0-1.0.29"
-lifecycleRuntimeKtx = "2.7.0"
-lifecycleViewmodelKtx = "2.7.0"
-loggingInterceptor = "5.0.0-alpha.11"
+kotlinxCoroutinesAndroid = "1.10.2"
+ksp = "2.2.0-2.0.2"
+lifecycleRuntimeKtx = "2.9.2"
+lifecycleViewmodelKtx = "2.9.2"
+loggingInterceptor = "5.1.0"
 material = "1.12.0"
-activity = "1.8.0"
+activity = "1.10.1"
 constraintlayout = "2.2.1"
-moshiKotlin = "1.15.0"
-navigationFragmentKtx = "2.7.6"
-navigationRuntimeKtx = "2.7.6"
+moshiKotlin = "1.15.2"
+navigationFragmentKtx = "2.9.2"
+navigationRuntimeKtx = "2.9.2"
 navigationSafeArgsGradlePlugin = "1.0.0"
-navigationSafeArgsGradlePluginVersion = "2.7.0"
-nav_version = "2.8.9"
-navigationUiKtx = "2.7.6"
-playServicesAds = "24.1.0"
-room = "2.6.1"
+navigationSafeArgsGradlePluginVersion = "2.9.2"
+nav_version = "2.9.2"
+navigationUiKtx = "2.9.2"
+playServicesAds = "24.5.0"
+room = "2.7.2"
+roomCompiler = "2.7.2"
+roomKtx = "2.7.2"
+roomRuntime = "2.7.2"
+workRuntime = "2.10.2"
+roomCommonJvm = "2.7.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,11 +52,22 @@ androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-navigation-runtime-ktx = { module = "androidx.navigation:navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
 androidx-navigation-safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigationSafeArgsGradlePluginVersion" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+androidx-work-runtime = { module = "androidx.work:work-runtime", version.ref = "workRuntime" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+coil3-coil = { module = "io.coil-kt.coil3:coil", version.ref = "coilVersion" }
+coil3-coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilNetworkOkhttp" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
 dagger-hilt-android-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hiltAndroidGradlePlugin" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-installations = { module = "com.google.firebase:firebase-installations", version.ref = "firebaseInstallations" }
+firebase-messaging = { module = "com.google.firebase:firebase-messaging" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
+gradle-v8111 = { module = "com.android.tools.build:gradle", version.ref = "gradleVersion" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -67,6 +88,7 @@ navigation-safe-args-gradle-plugin = { module = "android.arch.navigation:navigat
 navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtx" }
 play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "playServicesAds" }
 retrofit2-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "converterMoshi" }
+androidx-room-common-jvm = { group = "androidx.room", name = "room-common-jvm", version.ref = "roomCommonJvm" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

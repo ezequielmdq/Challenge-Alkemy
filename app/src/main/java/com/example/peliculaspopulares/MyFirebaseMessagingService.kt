@@ -38,6 +38,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
         Log.d(TAG, "From: ${remoteMessage.from}")
+        println("mensaje recibido")
 
         // Check if message contains a data payload.
         if (remoteMessage.data.isNotEmpty()) {
@@ -79,6 +80,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         // manage this apps subscriptions on the server side, send the
         // FCM registration token to your app server.
         sendRegistrationToServer(token)
+
+        println("token recibido")
     }
     // [END on_new_token]
 

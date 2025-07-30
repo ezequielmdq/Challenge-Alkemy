@@ -1,5 +1,6 @@
-package com.example.peliculaspopulares.repositorio
+package com.example.peliculaspopulares.repositorio.network
 
+import android.content.Context
 import com.example.peliculaspopulares.BuildConfig
 import com.example.peliculaspopulares.service.MoshiPeliculaInterface
 import com.squareup.moshi.Moshi
@@ -11,9 +12,11 @@ interface AppContainer {
 
     val peliculaRepository : PeliculaRepository
 
+
 }
 
-class DefaultAppContainer : AppContainer {
+class DefaultAppContainer(context: Context) : AppContainer {
+
 
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())

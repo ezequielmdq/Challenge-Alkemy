@@ -9,14 +9,18 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.peliculaspopulares.PeliculasApplication
 import com.example.peliculaspopulares.R
 import com.example.peliculaspopulares.databinding.ActivityMainBinding
+import com.example.peliculaspopulares.model.PeliculaDaoViewModel
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModel
-
-
+import com.google.firebase.Firebase
+import com.google.firebase.messaging.messaging
+import kotlin.getValue
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
 
     private val viewModel : PeliculasPopularesViewModel by viewModels {PeliculasPopularesViewModel.Factory}
+
+
 
     private lateinit var navController : NavController
 
@@ -51,6 +57,8 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         askNotificationPermission()
+
+
 
     }
     override fun onSupportNavigateUp(): Boolean {
