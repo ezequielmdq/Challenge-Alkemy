@@ -19,7 +19,7 @@ import com.example.peliculaspopulares.model.PeliculaDaoViewModel
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModel
 
 
-
+/**
 
 class PantallaPrincipal : Fragment() {
 
@@ -122,4 +122,4 @@ class PantallaPrincipal : Fragment() {
 
 }
 
-
+*/

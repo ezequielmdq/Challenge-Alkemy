@@ -6,8 +6,15 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
@@ -18,11 +25,13 @@ import com.example.peliculaspopulares.R
 import com.example.peliculaspopulares.databinding.ActivityMainBinding
 import com.example.peliculaspopulares.model.PeliculaDaoViewModel
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModel
+import com.example.peliculaspopulares.ui.MoviesApp
+import com.example.peliculaspopulares.ui.theme.PeliculasPopularesTheme
 import com.google.firebase.Firebase
 import com.google.firebase.messaging.messaging
 import kotlin.getValue
 
-
+/**
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
@@ -85,7 +94,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    }*/
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            PeliculasPopularesTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    MoviesApp(
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+        }
     }
+}
+
 
 
 

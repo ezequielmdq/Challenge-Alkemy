@@ -15,6 +15,8 @@ import com.example.peliculaspopulares.databinding.ActivityDetallesPeliculasBindi
 import com.example.peliculaspopulares.model.PeliculasPopularesViewModel
 import kotlin.math.roundToInt
 
+
+/**
 class DetallesPeliculas : DialogFragment() {
 
     private lateinit var binding: ActivityDetallesPeliculasBinding
@@ -108,7 +110,7 @@ class DetallesPeliculas : DialogFragment() {
 }
 
 
-
+*/
 
 
 

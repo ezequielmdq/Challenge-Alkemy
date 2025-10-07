@@ -19,4 +19,13 @@
     <string name="fcm_message">FCM Message</string>
     <string name="default_notification_channel_name" translatable="true">Weather</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="title_activity_movies_screen">MoviesScreen</string>
+    <string name="loading_failed">Failed to load</string>
+    <string name="placeholder_result">Placeholder result text</string>
+    <string name="retry">Retry</string>
+    <string name="loading">Loading</string>
+    <string name="movies_photo">Movies photo</string>
+    <string name="movies">Movies</string>
+    <string name="details">Details</string>
+    <string name="back_button">Back</string>
 </resources>
